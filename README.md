@@ -40,4 +40,7 @@ docker-compose up --build
 - `DATA_SIZE`: İşlenecek veri boyutu
 - `CHUNK_SIZE`: Her işlem için veri parçası boyutu
 - `OMP_NUM_THREADS`: Her düğümdeki OpenMP thread sayısı
-- Düğüm sayısı: docker-compose.yml dosyasında değiştirilebilir 
+- Düğüm sayısı: docker-compose.yml dosyasında değiştirilebilir
+
+## video
+https://youtu.be/fuC-sZx3iSY
