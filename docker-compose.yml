@@ -1,0 +1,22 @@
+version: '3'
+services:
+  node1:
+    build: .
+    image: node1-image
+    volumes:
+      - ./data:/app/data
+    deploy:
+      replicas: 4
+    environment:
+      - OMP_NUM_THREADS=2
+    ports:
+      - "2221:22"
+    healthcheck:
+      test: ["CMD", "service", "ssh", "status"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    command: >
+      bash -c "service ssh start && 
+      mpirun -n 4 -host node1,node2,node3,node4 -bind-to none -map-by slot ./parallel_processing"
+
